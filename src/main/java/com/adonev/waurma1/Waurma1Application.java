@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -25,14 +26,24 @@ public class Waurma1Application {
 			String email = String.format("%s@waurma.ru", name);
 			Customer customer = new Customer(email, name, faker.phoneNumber().cellPhone());
 
-			//customer.setEmail(email);
+			String name1 = faker.name().firstName();
+			String email1 = String.format("%s@waurma.ru", name1);
+			Customer customer1 = new Customer(email1, name1, faker.phoneNumber().cellPhone());
+
+			List<Customer> customers = new ArrayList<>(10);
+			for (Customer c : customers) {
+				c = new Customer();
+			}
 
 			customerRepository.save(customer);
+			customerRepository.save(customer1);
+			customerRepository.saveAll(customers);
 
 			System.out.println(customerRepository.search(name));
-			System.out.println(customerRepository.findByName("A"));
-			System.out.println(customerRepository.findAllCustomers(""));
+			System.out.println(customerRepository.findByName(name1));
+			System.out.println(customerRepository.findAll());
 
+			customerRepository.delete(customer1);
 
 		};
 	}
