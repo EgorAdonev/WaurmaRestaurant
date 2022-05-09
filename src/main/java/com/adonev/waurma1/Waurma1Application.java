@@ -30,14 +30,16 @@ public class Waurma1Application {
 			String email1 = String.format("%s@waurma.ru", name1);
 			Customer customer1 = new Customer(email1, name1, faker.phoneNumber().cellPhone());
 
-			List<Customer> customers = new ArrayList<>(10);
-			for (Customer c : customers) {
-				c = new Customer();
-			}
+//			List<Customer> customers = new ArrayList<>(10);
+//
+//			for (int i = 0;i<customers.size(); ++i) {
+//				String name0 = faker.name().firstName();
+//				String phone0= faker.phoneNumber().cellPhone();
+//				customers.add(new Customer(name0,String.format("%s@waurma.ru", name0),phone0));
+//			}
 
 			customerRepository.save(customer);
 			customerRepository.save(customer1);
-			customerRepository.saveAll(customers);
 
 			System.out.println(customerRepository.search(name));
 			System.out.println(customerRepository.findByName(name1));
