@@ -8,27 +8,27 @@
 		<version>2.6.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.restaurant</groupId>
-	<artifactId>waurma</artifactId>
+	<groupId>com.adonev</groupId>
+	<artifactId>waurma1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>waurma</name>
-	<description>WaurmaSpring</description>
+	<name>waurma1</name>
+	<description>Restaurant Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<vaadin.version>23.0.7</vaadin.version>
 	</properties>
 	<dependencies>
-
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<version>2.6.7</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
-
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -36,15 +36,28 @@
 			<version>4.0.1</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-spring-boot-starter</artifactId>
@@ -55,20 +68,16 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.restaurant</groupId>
-			<artifactId>waurma</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>1.0.2</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -80,12 +89,11 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin</artifactId>
-			<version>14.7.1</version>
-		</dependency>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin</artifactId>
+				<version>14.7.1</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-server -->
 			<dependency>
 				<groupId>com.vaadin</groupId>
@@ -119,6 +127,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>repackage</id>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
 					<excludes>
 						<exclude>
@@ -130,33 +146,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-<!--	<profiles>-->
-<!--		<profile>-->
-<!--			<id>production</id>-->
-<!--			<build>-->
-<!--				<plugins>-->
-<!--&lt;!&ndash;					<plugin>&ndash;&gt;-->
-<!--&lt;!&ndash;						<groupId>com.vaadin</groupId>&ndash;&gt;-->
-<!--&lt;!&ndash;						<artifactId>vaadin-maven-plugin</artifactId>&ndash;&gt;-->
-<!--&lt;!&ndash;						<version>LATEST</version>&ndash;&gt;-->
-<!--&lt;!&ndash;						<executions>&ndash;&gt;-->
-<!--&lt;!&ndash;							<execution>&ndash;&gt;-->
-<!--&lt;!&ndash;								<id>frontend</id>&ndash;&gt;-->
-<!--&lt;!&ndash;								<phase>compile</phase>&ndash;&gt;-->
-<!--&lt;!&ndash;								<goals>&ndash;&gt;-->
-<!--&lt;!&ndash;									<goal>prepare-frontend</goal>&ndash;&gt;-->
-<!--&lt;!&ndash;									<goal>build-frontend</goal>&ndash;&gt;-->
-<!--&lt;!&ndash;								</goals>&ndash;&gt;-->
-<!--&lt;!&ndash;								<configuration>&ndash;&gt;-->
-<!--&lt;!&ndash;									<productionMode>true</productionMode>&ndash;&gt;-->
-<!--&lt;!&ndash;								</configuration>&ndash;&gt;-->
-<!--&lt;!&ndash;							</execution>&ndash;&gt;-->
-<!--&lt;!&ndash;						</executions>&ndash;&gt;-->
-<!--&lt;!&ndash;					</plugin>&ndash;&gt;-->
-<!--				</plugins>-->
-<!--			</build>-->
-<!--		</profile>-->
-<!--	</profiles>-->
 
 </project>
