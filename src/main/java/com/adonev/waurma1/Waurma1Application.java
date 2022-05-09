@@ -28,8 +28,11 @@ public class Waurma1Application {
 			//customer.setEmail(email);
 
 			customerRepository.save(customer);
+
 			System.out.println(customerRepository.search(name));
-			System.out.println(customer);
+			System.out.println(customerRepository.findByName("A"));
+			System.out.println(customerRepository.findAllCustomers(""));
+
 
 		};
 	}
