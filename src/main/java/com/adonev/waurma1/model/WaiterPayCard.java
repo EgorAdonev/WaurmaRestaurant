@@ -35,7 +35,6 @@ public class WaiterPayCard {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "waiter_id",
-            referencedColumnName = "waiter_card_id",
             foreignKey = @ForeignKey(name = "waiter_id_fk")
     )
     private Waiter waiter;
