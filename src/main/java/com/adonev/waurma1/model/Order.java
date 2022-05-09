@@ -59,26 +59,24 @@ public class Order {
     @Column(name = "ready",columnDefinition = "bool")
     private boolean ready;
 
-//    @ManyToOne
-//    @JoinColumn(
-//            name = "customer_id",
-//            nullable = false,
-//            referencedColumnName = "order_id",
-//            foreignKey = @ForeignKey(
-//                    name = "customer_orders_fk"
-//            )
-//    )
-//    private Customer customer;
-//    @ManyToOne
-//    @JoinColumn(
-//            name = "waiter_id",
-//            nullable = false,
-//            referencedColumnName = "order_id",
-//            foreignKey = @ForeignKey(
-//                    name = "waiter_orders_fk"
-//            )
-//    )
-//    private Waiter waiter;
+    @ManyToOne
+    @JoinColumn(
+            name = "customer_id",
+            nullable = false,
+            foreignKey = @ForeignKey(
+                    name = "customer_orders_fk"
+            )
+    )
+    private Customer customer;
+    @ManyToOne
+    @JoinColumn(
+            name = "waiter_id",
+            nullable = false,
+            foreignKey = @ForeignKey(
+                    name = "waiter_orders_fk"
+            )
+    )
+    private Waiter waiter;
 
     @Override
     public String toString() {

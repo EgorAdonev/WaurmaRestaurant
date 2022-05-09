@@ -47,13 +47,13 @@ public class Waiter {
     @Column(name = "waiter_phone",columnDefinition = "VARCHAR")
     private String waiter_phone;
 
-//    @OneToMany(
-//            mappedBy = "waiter",
-//            orphanRemoval = true,
-//            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-//            fetch = FetchType.LAZY
-//    )
-//    private List<Order> waiterOrders = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "waiter",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<Order> waiterOrders = new ArrayList<>();
 
 
     @OneToOne(mappedBy = "waiter", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})

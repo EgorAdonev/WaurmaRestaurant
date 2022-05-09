@@ -46,13 +46,13 @@ public class Customer {
     @Column(name = "phone",columnDefinition = "VARCHAR")
     private String phone;
 
-//    @OneToMany(
-//            mappedBy = "customer",
-//            orphanRemoval = true,
-//            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-//            fetch = FetchType.LAZY
-//    )
-//    private List<Order> customerOrders = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "customer",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<Order> customerOrders = new ArrayList<>();
 
     @Override
     public String toString() {
