@@ -39,4 +39,12 @@ public class WaiterPayCard {
     )
     private Waiter waiter;
 
+    @Override
+    public String toString() {
+        return "WaiterPayCard{" +
+                "waiter_card_id=" + waiter_card_id +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", waiter=" + waiter +
+                '}';
+    }
 }

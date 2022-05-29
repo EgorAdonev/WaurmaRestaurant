@@ -13,7 +13,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     @Query("select c from Customer c " +
             "where lower(c.name) like lower(concat('%', :searchTerm, '%')) " +
-            "or lower(c.phone) like lower(concat('%', :searchTerm, '%'))")
+            "or lower(c.phone) like lower(concat('%', :searchTerm, '%')) " +
+            "or lower(c.email) like lower(concat('%', :searchTerm, '%'))")
     List<Customer> search(@Param("searchTerm") String searchTerm);
 
     @Query("SELECT h FROM Customer h WHERE h.name = :customer_id")

@@ -45,7 +45,8 @@ public class MainLayout {
         header.expand(logo);
         header.setWidth("100%");
         header.addClassName("header");
-
+        header.setVisible(true);
+        header.setEnabled(true);
 //        addToNavbar(header);
     }
 }

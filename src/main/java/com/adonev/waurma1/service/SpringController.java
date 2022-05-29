@@ -35,15 +35,6 @@ public class SpringController implements WebMvcConfigurer {
         return bean;
     }
 
-//    @Bean
-//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-//        LocalContainerEntityManagerFactoryBean entityManagerFactory =
-//                new LocalContainerEntityManagerFactoryBean();
-//        // Classpath scanning of @Component, @Service, etc annotated class
-//        entityManagerFactory.setPackagesToScan(new String[]{
-//                Customer.class.getPackage().getName()});
-//        return entityManagerFactory;
-//    }
     @Autowired
     private LocalContainerEntityManagerFactoryBean entityManagerFactory;
 
